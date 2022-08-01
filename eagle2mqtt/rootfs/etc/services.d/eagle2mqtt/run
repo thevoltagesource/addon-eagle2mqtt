@@ -1,0 +1,18 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Eagle to MQTT Bridge
+# Runs the bridge
+# ==============================================================================
+
+bashio::log.info 'Starting Eagle2MQTT...'
+
+export MQTT_HOST=$(bashio::config 'mqtt_host')
+export MQTT_USER=$(bashio::config 'mqtt_user')
+export MQTT_PASS=$(bashio::config 'mqtt_pass')
+export MQTT_TOPIC=$(bashio::config 'mqtt_topic')
+export LOG_LEVEL=$(bashio::config 'log_level')
+export SUMMATION_WATTS=$(bashio::config 'summation_watts')
+export HA_DISCOVERY=$(bashio::config 'ha_discovery')
+
+# Run Eagle2MQTT
+exec npm start

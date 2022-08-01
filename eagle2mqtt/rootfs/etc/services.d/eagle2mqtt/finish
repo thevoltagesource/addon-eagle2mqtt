@@ -1,0 +1,11 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Eagle2MQTT
+# Take down the S6 supervision tree when Eagle2MQTT fails
+# ==============================================================================
+if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
+  bashio::log.warning "Eagle2MQTT crashed, halting add-on"
+  /run/s6/basedir/bin/halt
+fi
+
+bashio::log.info "Eagle2MQTT stoped, restarting..."
