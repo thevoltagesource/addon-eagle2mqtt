@@ -16,7 +16,12 @@ RUN \
     && curl -L -o /tmp/e2m.tar.gz https://github.com/thevoltagesource/eagle-mqtt-bridge/archive/refs/tags/v${E2M}.tar.gz \
     && tar -xvzf /tmp/e2m.tar.gz -C /tmp \
     && cp /tmp/eagle-mqtt-bridge-${E2M}/*.js* . \
+    && npm config set unsafe-perm true \
+    \
     && npm ci \
+        --no-audit \
+        --no-update-notifier \
+        --unsafe-perm \
     \
     && rm -rf /tmp/*
 
