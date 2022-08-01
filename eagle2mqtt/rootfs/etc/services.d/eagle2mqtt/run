@@ -15,4 +15,4 @@ export SUMMATION_WATTS=$(bashio::config 'summation_watts')
 export HA_DISCOVERY=$(bashio::config 'ha_discovery')
 
 # Run Eagle2MQTT
-exec npm start
+exec npm start --prefix /app
