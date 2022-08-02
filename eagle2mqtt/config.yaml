@@ -1,11 +1,10 @@
 ---
 name: Eagle to MQTT Bridge
-version: dev
+version: dev.1
 slug: eagle2mqtt
 description: Service listens for messages from the Rainforest Eagle and publishes them to MQTT
 url: https://github.com/thevoltagesource/addon-eagle2mqtt
-ingress: true
-startup: system
+codenotary: jacob@thevoltagesource.com
 init: false
 arch:
   - aarch64
@@ -17,9 +16,9 @@ services:
   - mqtt:want
 watchdog: http://[HOST]:[PORT:3000]
 options:
-  mqtt_host: null
-  mqtt_user: null
-  mqtt_pass: null
+  mqtt_host: ""
+  mqtt_user: ""
+  mqtt_pass: ""
   mqtt_topic: eagle
   log_level: info
   summation_watts: false
